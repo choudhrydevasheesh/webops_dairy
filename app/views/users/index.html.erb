@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Users</h1>
-
 <table>
   <thead>
     <tr>
@@ -23,7 +22,12 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
+<br>
+<%= will_paginate(@users) %>
+<br>
 <%= link_to 'New User', new_user_path %>
+<br>
+<br>
+<input type="text"> </input>
+<button type="submit">Search User</button>
