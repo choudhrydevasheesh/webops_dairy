@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    sub-resources :search
+  end
 
-  resources :users, only: [:index]
-  root to: "users#index"
+  # Example resource route with sub-resources:
+  #   resources :products do
+  #     resources :comments, :sales
+  #     resource :seller
+  #   end
+
+
+  #resources :users, only: [:index]
+  #root to: "users#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
