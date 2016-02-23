@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if @user.nil? %>
+  <% provide(:title, 'Not found') %>
+  No user with that ID has been found.
+<% else %>
+  <!-- Contents of your current show.html.erb -->
+
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -10,4 +17,8 @@
   <%= @user.email %>
 </p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
+
+<% end %>
+
+
 <%= link_to 'Back', users_path %>

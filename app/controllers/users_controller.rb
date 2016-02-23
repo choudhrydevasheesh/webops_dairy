@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :search_user]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -63,14 +63,18 @@ class UsersController < ApplicationController
   end
 
   
-  def search_user
-      @users = User.search(params[:search])
+  def search
+      #@users = User.search(params[:search])
+      logger.warn "It works!"
+      @hello = "hello"
+        @users = User.search(params[:search_text])
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      #@user = User.find(params[:id])
+      @hello = "hello"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

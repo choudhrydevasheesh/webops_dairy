@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  resources :users do
-    sub-resources :search
-  end
+  resources :users
+   get 'users/search', :controller => 'users', :action => /[a-z]+/i
+   #root to: "users#index"
+   #      member do
+   #        get 'search'
+   #      end
+   #  end
+    
+    #sub-resources :search
+  #end
 
   # Example resource route with sub-resources:
   #   resources :products do
