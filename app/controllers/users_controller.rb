@@ -64,17 +64,25 @@ class UsersController < ApplicationController
 
   
   def search
-      #@users = User.search(params[:search])
-      logger.warn "It works!"
       @hello = "hello"
-        @users = User.search(params[:search_text])
+      #@search_text=params['search_text']
+      
+      #respond_to do |format|
+      #format.html { render :search_results }
+      #render :text @search_text
+      #end
   end
+
+
+  def search_results
+      render text: "hello world"
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      #@user = User.find(params[:id])
-      @hello = "hello"
+      @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

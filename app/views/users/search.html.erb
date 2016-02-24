@@ -1,16 +1,20 @@
 Say <%= @hello %>
-
-
-<%= form_tag users, :method => 'get' do %>
   <p>
-   <%= text_field_tag :search_text, params[:search_text] %>
-   <%= submit_tag 'Search' %>
+   <%= text_field_tag :@search_text %>
+   <%= link_to 'Search', search_results_users_path %>
   </p>
-<% end %>
+
+|
+<%= link_to 'Index Page', users_path %>
+
+
+
+
 
 <!-- <p id="notice"><%= notice %></p>
 
 <h1>Searching Users</h1>
+   <%= text_field_tag :@search_text, params[:search_text] %>
 
 <input type="text"> </input>
 <button type="submit">Search User</button>
@@ -25,15 +29,16 @@ Say <%= @hello %>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <%# @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
+        <td><%#= user.name %></td>
+        <td><%#= user.email %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 <br>
 <br>
-<%= will_paginate(@users) %>
+<%#= will_paginate(@users) %>
  -->
+ 
