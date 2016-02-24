@@ -67,15 +67,16 @@ class UsersController < ApplicationController
       @hello = "hello"
       #@search_text=params['search_text']
       
-      #respond_to do |format|
-      #format.html { render :search_results }
-      #render :text @search_text
-      #end
+      p search_text
+      #@users = User.where("name LIKE ?") , "%#{search_text}%"}
+      #render :search_results_users_path
+      p @users
+
   end
 
 
   def search_results
-      render text: "hello world"
+      #render text: "hello world"
   end
 
 

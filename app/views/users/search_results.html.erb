@@ -2,6 +2,11 @@
 
 <h1>Searching Results </h1>
 
+<% if @user.nil? %>
+  <% provide(:title, 'Not found') %>
+  No user with that name has been found.
+<% else %>
+
 <table>
   <thead>
     <tr>
@@ -11,7 +16,7 @@
     </tr>
   </thead>
 
-<!--   <tbody>
+  <tbody>
     <%# @users.each do |user| %>
       <tr>
         <td><%#= user.name %></td>
@@ -20,9 +25,9 @@
     <%# end %>
   </tbody>
 </table>
+<%# = will_paginate(@users) %>
+<% end %>
 <br>
 <br>
-<%# = will_paginate(@users) %> -->
-
-<%= link_to 'Search Page', search_users_path %> 
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', search_users_path %> 
+<%= link_to 'Home', users_path %>
