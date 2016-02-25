@@ -64,22 +64,17 @@ class UsersController < ApplicationController
 
 
   def search
-      @hello = "hello"
   end
 
 
   def search_results
-
       search_text=params[:q]+'%'
-      @user = User.where(("name LIKE ?") , search_text)
-
+      @users = User.where(("name LIKE ?") , search_text)
+      @users = @users.paginate(page: params[:page], per_page: 2)
+      #.paginate(:page => params[:page], :per_page => 10, :total_entries => @users.count)
       respond_to do |format|
-      format.html { render search_results_users_path}
+        format.html { render search_results_users_path}
       end
-
-      #render :search_results_users_path
-      # p @users
-      # #render text: "hello world"
   end
 
 

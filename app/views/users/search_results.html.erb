@@ -1,31 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Searching Results </h1>
-<% @user.to_s %>
-<% if @user.nil? %>
+<% if @users.empty? %>
   <% provide(:title, 'Not found') %>
   No user with that name has been found.
+
 <% else %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.each do |user| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%# = will_paginate(@users) %>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate(@users) %>
 <% end %>
 <br>
 <br>
