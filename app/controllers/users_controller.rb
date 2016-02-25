@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    @users = User.paginate(page: params[:page], per_page: 3) 
+    @users = User.paginate(page: params[:page], per_page: 3)
   end
 
   # GET /users/1
@@ -62,21 +62,23 @@ class UsersController < ApplicationController
     end
   end
 
-  
+
   def search
       @hello = "hello"
-      #@search_text=params['search_text']
-      
-      p search_text
-      #@users = User.where("name LIKE ?") , "%#{search_text}%"}
-      #render :search_results_users_path
-      p @users
-
   end
 
 
   def search_results
-      #render text: "hello world"
+
+      respond_to do |format|
+      format.html { render search_results_users_path, notice: params[:q] }
+      end
+
+      search_text=params[:q]
+      @users = User.where("name LIKE ?") , "%#{search_text}%"}
+      # #render :search_results_users_path
+      # p @users
+      # #render text: "hello world"
   end
 
 

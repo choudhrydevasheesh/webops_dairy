@@ -1,12 +1,16 @@
-Say <%= @hello %>
+<!-- Say <%= @hello %>
   <p>
    <%= text_field_tag :@search_text %>
    <%= link_to 'Search', search_results_users_path %>
   </p>
-<%= link_to 'Home', users_path %>
+<%= link_to 'Home', users_path %> -->
 
 
-
+<%= form_tag(search_results_users_path, :method => "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
 
 
 <!-- <p id="notice"><%= notice %></p>
@@ -39,4 +43,3 @@ Say <%= @hello %>
 <br>
 <%#= will_paginate(@users) %>
  -->
- 
