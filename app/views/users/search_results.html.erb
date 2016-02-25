@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Searching Results </h1>
-
+<% @user.to_s %>
 <% if @user.nil? %>
   <% provide(:title, 'Not found') %>
   No user with that name has been found.
@@ -17,12 +17,12 @@
   </thead>
 
   <tbody>
-    <%# @users.each do |user| %>
+    <% @user.each do |user| %>
       <tr>
-        <td><%#= user.name %></td>
-        <td><%#= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
       </tr>
-    <%# end %>
+    <% end %>
   </tbody>
 </table>
 <%# = will_paginate(@users) %>

@@ -70,13 +70,14 @@ class UsersController < ApplicationController
 
   def search_results
 
+      search_text=params[:q]+'%'
+      @user = User.where(("name LIKE ?") , search_text)
+
       respond_to do |format|
-      format.html { render search_results_users_path, notice: params[:q] }
+      format.html { render search_results_users_path}
       end
 
-      search_text=params[:q]
-      @users = User.where("name LIKE ?") , "%#{search_text}%"}
-      # #render :search_results_users_path
+      #render :search_results_users_path
       # p @users
       # #render text: "hello world"
   end
