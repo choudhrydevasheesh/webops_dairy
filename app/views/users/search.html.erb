@@ -4,17 +4,20 @@
    <%= link_to 'Search', search_results_users_path %>
   </p>
 <%= link_to 'Home', users_path %> -->
-
-
+<div>
 <%= form_tag(search_results_users_path) do %>
     <%= label_tag(:q, "Search for:") %>
     <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %>
+    <%= submit_tag("Search", :id => "submit", :name => "submit", :remote => false, :onclick => "alert" )%>
 <% end %>
 <br>
 <h3><%= link_to 'Home', users_path %>
+</div>
+<%# application.alert("Hello! I am an alert box!!") %>
+<!-- <div>
 
-
+</div>
+ -->
 <!-- <p id="notice"><%= notice %></p>
 
 <h1>Searching Users</h1>
