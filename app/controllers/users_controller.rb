@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 
 
   def search
-   
+   #render :js => "alert('Hello');"
   end
 
 
